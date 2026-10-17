@@ -1,0 +1,22 @@
+[
+  {"query": "send a test sms to my phone with smsmode, key is in .env as SMSMODE_API_KEY", "should_trigger": true},
+  {"query": "Pourquoi mon SMS envoyé via rest.smsmode.com arrive avec des ? à la place des emojis ?", "should_trigger": true},
+  {"query": "our notifications service uses Twilio, I want to add smsmode as a second SMS provider behind a config flag", "should_trigger": true},
+  {"query": "implémente le webhook X-Smsmode-256 pour les accusés de réception dans notre API FastAPI", "should_trigger": true},
+  {"query": "how many SMS will this reminder cost if I send it through smsmode: 'Votre colis arrive demain entre 8 h et 12 h, merci d’être présent.'", "should_trigger": true},
+  {"query": "patients reply to our appointment texts from 36034 but some answers show up linked to the wrong appointment, help", "should_trigger": true},
+  {"query": "I got status UNDELIVERABLE with detail ORGANISATION_MONTHLY_LIMIT_EXCEEDED on every message since this morning", "should_trigger": true},
+  {"query": "on veut un vrai numéro en 09 pour envoyer et recevoir des SMS avec smsmode, comment on fait ?", "should_trigger": true},
+  {"query": "list the replies we got on smsmode this week and export them to a CSV", "should_trigger": true},
+  {"query": "write a script that checks our smsmode balance every morning and alerts us under 20 euros", "should_trigger": true},
+  {"query": "set up Twilio Verify for OTP codes in our signup flow", "should_trigger": false},
+  {"query": "send a WhatsApp template message through the Meta Cloud API", "should_trigger": false},
+  {"query": "our Brevo transactional emails land in spam, how do I set up DKIM?", "should_trigger": false},
+  {"query": "validate French phone numbers in a signup form with libphonenumber", "should_trigger": false},
+  {"query": "configure Twilio StatusCallback for our existing Twilio messaging service", "should_trigger": false},
+  {"query": "send push notifications to iOS with APNs from our Node backend", "should_trigger": false},
+  {"query": "write a regex that strips emojis from user comments before saving them", "should_trigger": false},
+  {"query": "integrate the OVHcloud SMS API to send alerts from our monitoring", "should_trigger": false},
+  {"query": "explain the GDPR rules for storing phone numbers in our CRM", "should_trigger": false},
+  {"query": "set up an Asterisk IVR that reads a message when someone calls our 09 number", "should_trigger": false}
+]

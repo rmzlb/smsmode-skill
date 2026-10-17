@@ -1,0 +1,17 @@
+{
+  "name": "smsmode-skill",
+  "description": "Agent skill for the smsmode SMS API.",
+  "owner": {
+    "name": "rmzlb",
+    "url": "https://github.com/rmzlb"
+  },
+  "plugins": [
+    {
+      "name": "smsmode",
+      "source": "./",
+      "description": "Send, receive and troubleshoot SMS with the smsmode REST API.",
+      "category": "messaging",
+      "tags": ["sms", "smsmode", "france"]
+    }
+  ]
+}

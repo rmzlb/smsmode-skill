@@ -1,0 +1,14 @@
+{
+  "name": "smsmode",
+  "displayName": "smsmode SMS",
+  "description": "Send, receive and troubleshoot SMS with the smsmode REST API: encoding and segments, replies (MO), signed webhooks, Twilio migration.",
+  "version": "1.0.0",
+  "author": {
+    "name": "rmzlb",
+    "url": "https://github.com/rmzlb"
+  },
+  "homepage": "https://github.com/rmzlb/smsmode-skill",
+  "repository": "https://github.com/rmzlb/smsmode-skill",
+  "license": "MIT",
+  "keywords": ["smsmode", "sms", "france", "webhooks", "twilio-migration", "agent-skills"]
+}
