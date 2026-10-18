@@ -1,6 +1,6 @@
 ---
 name: smsmode
-description: Sends, receives and troubleshoots SMS through the smsmode REST API (rest.smsmode.com, a French SMS provider). Use when code or an agent sends transactional or marketing SMS with smsmode, reads replies (MO), handles delivery reports or signed webhooks, picks a sender ID, checks GSM-7 vs Unicode encoding and segment cost, sets up two-way SMS, or migrates from Twilio or another provider to smsmode, even when the user only says "SMS" and the project uses an smsmode key or a French short code.
+description: Sends, receives and troubleshoots SMS and RCS through the smsmode REST API (rest.smsmode.com, a French SMS/RCS provider). Use when code or an agent sends transactional or marketing SMS or RCS with smsmode, reads replies (MO), handles delivery reports or signed webhooks, picks a sender ID, checks GSM-7 vs Unicode encoding and segment cost, sets up two-way SMS or RCS rich cards/buttons, or migrates from Twilio or another provider to smsmode, even when the user only says "SMS" or "RCS" and the project uses an smsmode key or a French short code.
 license: MIT
 compatibility: Needs network access to rest.smsmode.com and an smsmode API key in SMSMODE_API_KEY. Bundled scripts need Python 3.9+ and only the standard library.
 metadata:
@@ -9,7 +9,7 @@ metadata:
   verified-against-api: "2026-10-17"
 ---
 
-# smsmode SMS API
+# smsmode SMS & RCS API
 
 Facts below come from smsmode's OpenAPI specs, its knowledge base and calls
 made against the live API (marked *observed*). Paths are relative to this
@@ -17,12 +17,22 @@ skill's directory.
 
 ## Spending rules
 
-Every sent message (MT) is billed per segment; replies (MO) are free.
+Every sent SMS (MT) is billed per segment (`1..=10`), every sent RCS message by
+its tier (`BASIC` for `<= 160` chars without buttons vs `SINGLE`/`SESSION`), and
+Time2Chat / RCS conversations per 24-hour session; inbound replies (MO) are
+free. Unit euro rates are **not fixed**: they depend on the subscription plan
+(prepaid pack `1k–100k`, monthly plan `Basique`, `Classique`, `Medium`,
+`Premium`, or custom contract) and destination country — see
+[references/pricing.md](references/pricing.md).
 
-- Run `scripts/sms_segments.py` on the text before sending.
+- Always state the **structural billing unit** first (segment count + encoding
+  for SMS, `BASIC` vs `SINGLE` tier for RCS), and never quote a single euro
+  price without naming the subscription plan or reading `price.amount` from the
+  API.
+- Run `scripts/sms_segments.py` on the text before sending an SMS.
 - `scripts/send_sms.py` only prints the request unless given `--send`.
 - Test only on a phone you own, one message at a time, and say how many SMS
-  a test will cost before running it.
+  segments (or which RCS tier) a test will cost before running it.
 
 ## Quick start
 
@@ -197,5 +207,8 @@ All print `--help`.
   Python and Node.js, retries, idempotency, personal data in callbacks.
 - [references/pricing.md](references/pricing.md): what is billed and how to
   read the real cost and balance from the API.
+- [references/rcs.md](references/rcs.md): RCS REST API (`POST /rcs/v1/messages`),
+  `BASIC` vs `TEXT` tier rules, quick-reply and action buttons (`postbackData`),
+  standalone rich cards, carousels, and `READ` receipts.
 - [references/migrating-from-twilio.md](references/migrating-from-twilio.md):
   Twilio concepts and fields mapped to smsmode.

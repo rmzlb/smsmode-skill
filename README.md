@@ -68,7 +68,8 @@ skills/smsmode/
 │   ├── encoding.md              # GSM-7 table, French characters, segment arithmetic
 │   ├── replies.md               # two-way SMS, short codes, Time2Chat, matching replies
 │   ├── webhooks.md              # signature checks (Python, Node.js), retries, idempotency
-│   ├── pricing.md               # what is billed, reading real cost and balance
+│   ├── pricing.md               # subscription plans (Prepaid, Basique, Classique, Medium, Premium), RCS/SMS/Time2Chat rates
+│   ├── rcs.md                   # RCS v1 API: BASIC vs SINGLE tiers, buttons, rich cards, carousels
 │   └── migrating-from-twilio.md # concept and status maps, checklist
 ├── scripts/                     # Python 3.9+, standard library only, all with --help
 │   ├── sms_segments.py          # encoding + segment count, no network
